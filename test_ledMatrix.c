@@ -1,7 +1,8 @@
 /* **********************************************************************
  *  File Name:      test_ledMatrix.c
  *  Description:    Mini test program to test out Adafruit's LED Matrix
- *                  Adapted from 
+ *                  Adapted from experimental python code by Simon Monk
+ *                  https://learn.adafruit.com/connecting-a-16x32-rgb-led-matrix-panel-to-a-raspberry-pi/experimental-python-code
  *  
  *  Created by:     Janet Mardjuki
  *  Year:           2016
@@ -89,6 +90,9 @@ static void exportAndOut(int pinNum)
  */
 static void ledMatrix_setupPins(void)
 {   
+    // !-   Change GPIO number here
+    //          fileDesc_<wire> = open("/sys/class/gpio/gpio<gpio_number>/value", O_WRONLY, S_IWRITE);
+
     // Upper led
     exportAndOut(RED1_PIN);
     fileDesc_red1 = open("/sys/class/gpio/gpio8/value", O_WRONLY, S_IWRITE);
